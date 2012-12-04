@@ -1,3 +1,7 @@
+// solved, small and large case passed.
+
+import java.util.TreeSet;
+
 /*
  * Given an array of non-negative integers, you are initially positioned at the first index of the array.
 Each element in the array represents your maximum jump length at that position.
@@ -8,31 +12,29 @@ A = [2,3,1,1,4], return true.
 A = [3,2,1,0,4], return false.
  */
 public class JumpGame {
-	
-	public boolean canJump(int[] A) {
-		return canJump(A, 0, A.length - 1);
-	}
-	
-	public boolean canJump(int[] A, int startIndex, int endIndex){
+	/*
+	 * running time : O(n*logn)
+	 */
+	public static boolean canJump(int[] A) {
 		
-		if(startIndex == endIndex)
-			return true;
+		boolean[] canJump = new boolean[A.length];
+		TreeSet<Integer> set = new TreeSet<Integer>();
+		canJump[A.length-1] = true;
+		set.add(A.length-1);
 		
-		if(endIndex - startIndex == 1){
-			if(A[startIndex] > 0){
-				return true;
+		for(int i = A.length-2; i>=0; i--){
+			
+			if(set.subSet(i, i+A[i]+1).size()!=0){
+				canJump[i] = true;
+				set.add(i);
 			}
-			return false;
+			
+
 		}
 		
-		for(int j = endIndex - 1; j >= startIndex; j--){
-			if(A[j] >= endIndex - j){
-				boolean temp = canJump(A, startIndex, j);
-				if(temp){
-					return true;
-				}
-			}
-		}
-		return false;
+		return canJump[0];
 	}
+	
+
 }
+
