@@ -22,6 +22,8 @@ public class KthElementInTwoSortedArray {
 		int s = k <= B.length ? 0 : k-B.length-1 ; 
 		int e = k - 1 >= A.length  ? A.length-1 : k-1;  
 		
+//		int s = 0;
+//		int e = A.length-1;
 		return getKthElementHelper(A,B,k,s,e);
 		
 	}

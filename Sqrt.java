@@ -17,7 +17,7 @@ public class Sqrt{
     		
     		int m = (s+e)/2;
     		
-    		if(m < x/m){ // cannot use m*m < x here sine it will cause overflow.
+    		if(m < x/m){ // cannot use m*m < x here since it will cause overflow.
     			s = m;
     		}
     		else if(m > x/m){

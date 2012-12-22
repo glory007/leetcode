@@ -6,10 +6,13 @@ import java.util.Comparator;
 import java.util.List;
 
 /*
- * 
+ * Two elements of a binary search tree (BST) are swapped by mistake.
+Recover the tree without changing its structure.
+Note:
+A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
+confused what "{1,#,2,3}" means? > read more on how binary tree is serialized on OJ.
  */
 public class RecoverBinarySearchTree {
-
 	 public void recoverTree(TreeNode root) {
 	 
 		 if (root == null) return ;
@@ -30,7 +33,6 @@ public class RecoverBinarySearchTree {
 	            }
 	        });
 		 
-		 
 		 for(int i = 0 ; i < index.length; i++){
 			 if(index[i] != i){
 				 int tmp = list.get(i).val;
@@ -47,6 +49,5 @@ public class RecoverBinarySearchTree {
 		 Traverse(root.left, list);
 		 list.add(root);
 		 Traverse(root.right, list);
-		 
 	 }
 }

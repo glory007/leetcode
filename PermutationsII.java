@@ -11,7 +11,6 @@ For example,
 public class PermutationsII {
 
     public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
-
     	return permuteUnique(num, 0, num.length-1);
     }
 	
@@ -48,4 +47,3 @@ public class PermutationsII {
     	num[j] = t;
     }
 }
-

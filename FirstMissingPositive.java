@@ -7,8 +7,6 @@ and [3,4,-1,1] return 2.
 Your algorithm should run in O(n) time and uses constant space.
  */
 public class FirstMissingPositive {
-	
-	
 	public int firstMissingPositive(int[] A){
 		for(int i = 0; i < A.length; i++){
 			while(A[i]!=i+1){
@@ -56,8 +54,6 @@ public class FirstMissingPositive {
 		 }
 		 
 		 return A.length+1;
-		 
-		 
 	 }
 	
 

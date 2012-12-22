@@ -70,10 +70,8 @@ public class InterleavingString {
 			if(s.contains(s1)){
 				return true;
 			}
-			
 		}
 		return false;
-		
 	}
 	
 	// assume input s2 is a subsequence of input s1

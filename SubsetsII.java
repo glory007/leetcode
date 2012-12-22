@@ -1,7 +1,7 @@
+// solved! both small and large cases.
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 /*
  * Subsets II
@@ -26,6 +26,7 @@ public class SubsetsII {
 
 	 
 	 public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] S) {
+		 // first sort input array S
 		 Arrays.sort(S);
 		 return subsets(S, 0, S.length - 1);
 	 }
@@ -39,20 +40,19 @@ public class SubsetsII {
 			 return r;
 		 }
 		 
-		 ArrayList<ArrayList<Integer>> temp = subsets(S, start, end - 1);
-		 ArrayList<ArrayList<Integer>> temp2 = new ArrayList<ArrayList<Integer>>();
+		 ArrayList<ArrayList<Integer>> temp = subsets(S, start + 1, end);
 		 
 		 for(ArrayList<Integer> x : temp){
-			 ArrayList<Integer> y = new ArrayList<Integer>(x);
-			 y.add(S[end]);
-			 temp2.add(y);
+			 x.add(0, S[start]);
 		 }
 		 
+		 while(start < S.length - 1 && S[start + 1] == S[start]){
+			 start++;
+		 }
+		 
+		 ArrayList<ArrayList<Integer>> temp2 = subsets(S, start + 1, end);
 		 temp.addAll(temp2);
 		 
-		 //dedup
-		 Set<ArrayList<Integer>> s = new HashSet<ArrayList<Integer>>(temp);
-		 return new ArrayList<ArrayList<Integer>>(s);
+		 return temp;
 	 }
-
 }

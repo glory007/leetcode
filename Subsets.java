@@ -1,3 +1,8 @@
+// solved! both small and large cases.
+
+// extended question: how do you solve this without using extra memory?
+// answer: print out all results. 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -44,9 +49,7 @@ public class Subsets {
 			 y.add(S[end]);
 			 temp2.add(y);
 		 }
-		 
 		 temp.addAll(temp2);
 		 return temp;
 	 }
-
 }

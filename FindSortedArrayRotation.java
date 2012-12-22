@@ -7,7 +7,8 @@
 
 /* 
  * if the array contains dups, then binary search will not work?
-* why? thinking about case like "2222222222222222122" or "2122222222222222", a binary search will not tell you which half to discard.
+* why? thinking about case like "2222222222222222122" or "2122222222222222", 
+* a binary search will not tell you which half to discard.
 */ 
 
 public class FindSortedArrayRotation {

@@ -42,7 +42,6 @@ public class BestTimetoBuyandSellStockIII {
         }
         
         int max = left[left.length-1];
-        
         for(int i = 0; i < left.length -1 ; i++){
         	if(left[i] + right[right.length-2-i] > max)
         	{
@@ -50,7 +49,5 @@ public class BestTimetoBuyandSellStockIII {
         	}
         }
         return max;
-        
     }
-
 }

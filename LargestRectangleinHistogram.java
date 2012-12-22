@@ -2,11 +2,51 @@
 
 import java.util.Stack;
 
+/*
+ * http://www.informatik.uni-ulm.de/acm/Locals/2003/html/judge.html
+ * 
+ */
 public class LargestRectangleinHistogram {
 
 	public static void main(String[] args){
-		int[] h = new int[]{2,1,5,6,2,3};
-		System.out.println(largestRectangleArea(h));
+		int[] h = new int[]{5,6,2};
+		System.out.println(largestRectangleArea3Helper(h,0,h.length-1));
+	}
+	
+
+	// small case passed. large case failed.
+	// TODO: use RMQ to speed up the minimum query.
+	public static int largestRectangleArea3(int[] height){
+		return largestRectangleArea3Helper(height, 0, height.length-1);
+	}
+	
+	public static int largestRectangleArea3Helper(int[] height, int s, int e){
+		if(s > e) return 0;
+		if(s == e) return height[s];
+		
+		int min = height[s];
+		int idx = s;
+		for(int i = s+1; i <=e ; i++){
+			if(height[i] < min){
+				min = height[i];
+				idx=i;
+			}
+		}
+		
+		int r1;
+		int r2;
+		int r3 = min * (e-s+1);
+		
+
+		if (idx == e){
+			r1 = largestRectangleArea3Helper(height, s, idx-1);
+			r2 = largestRectangleArea3Helper(height, idx, e);
+		}
+		else{
+			r1 = largestRectangleArea3Helper(height, s, idx);
+			r2 = largestRectangleArea3Helper(height, idx+1, e);
+		}
+		return Math.max(r1, Math.max(r3, r2));
 	}
 	
 	// http://tianrunhe.wordpress.com/2012/07/26/largest-rectangle-in-histogram/
@@ -41,7 +81,6 @@ public class LargestRectangleinHistogram {
         }
         return max;
     }
-	
 
 	// first try: naive way O(n^2)
 	// SMALL CASE PASSED! LARGE CASE TIME OUT.

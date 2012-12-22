@@ -28,8 +28,6 @@ public class JumpGame {
 				canJump[i] = true;
 				set.add(i);
 			}
-			
-
 		}
 		
 		return canJump[0];
@@ -37,4 +35,3 @@ public class JumpGame {
 	
 
 }
-
