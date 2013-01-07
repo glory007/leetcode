@@ -29,14 +29,12 @@ public class RemoveElement {
                 
             }
         }
-     
-        
     
-    
-    if(A[s] == elem){
-        return s;
+        if(A[s] == elem){
+        	return s;
+        }
+        else{
+        	return s+1;
+        }
     }
-    else{
-        return s+1;
-    }
-}}
+}
